@@ -1,0 +1,3 @@
+cd nginx-ssl
+sudo ./bootstrap.sh
+sudo service nginx restart
