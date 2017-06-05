@@ -1,8 +1,8 @@
 # conflue-postrgesql
 
-#u will need Vagrant avalible ports:80 > 8080 ; 443 > 4444 ; 
+u will need Vagrant avalible ports:80 > 8080 ; 443 > 4444 ; 
 
- and for pure setup confluence i can get access to controle panel from localhost:8090
+ and for pure setup confluence u can get access to controle panel from localhost:8090
 
 more then 5 gb memory -- java + tomcat + confluence + nginx 
 
@@ -76,6 +76,11 @@ vim  /etc/postgresql/9.5/main/pg_hba.conf
 
 	chmod a+x aws_access.sh 
 	./aws_access.sh -db "db name" -du "db user" -dp "db pass"
+
+# for castom setup confluence postreSQ and nginx servers 
+u can run script from vagrant hox 
+
+	./demo.sh -h  {-h means help}
 
 
 

@@ -55,16 +55,7 @@ cp ssl.rules /etc/nginx/ssl/ssl.rules
 cp nginx.conf /etc/nginx/nginx.conf
 
 # Generate the Keys
-if [ $OPT_SSL = "False" ]
-then
-    mkdir -p /etc/nginx/ssl/keys
-    openssl genpkey -algorithm RSA -out /etc/nginx/ssl/keys/private.key -pkeyopt rsa_keygen_bits:2048
-    openssl rsa -in /etc/nginx/ssl/keys/private.key -out /etc/nginx/ssl/keys/private-decrypted.key
-    openssl req -new -sha256 -key /etc/nginx/ssl/keys/private-decrypted.key -subj "/CN=$SERVER_NAME" -out /etc/nginx/ssl/keys/$SERVER_NAME.csr
-    openssl x509 -req -days 365 -in /etc/nginx/ssl/keys/$SERVER_NAME.csr -signkey /etc/nginx/ssl/keys/private.key -out /etc/nginx/ssl/keys/server.crt
-    rm /etc/nginx/ssl/keys/private-decrypted.key
-    rm /etc/nginx/ssl/keys/$SERVER_NAME.csr
-else
+
     wget -P /etc/apt/sources.list.d https://sslmate.com/apt/ubuntu1404/sslmate.list
     wget -P /etc/apt/trusted.gpg.d https://sslmate.com/apt/ubuntu1404/sslmate.gpg
     apt-get update
@@ -72,7 +63,6 @@ else
     sslmate buy $SERVER_NAME
     ln -s /etc/sslmate/$SERVER_NAME.key /etc/nginx/ssl/keys/private.key
     ln -s /etc/sslmate/$SERVER_NAME.chained.crt /etc/nginx/ssl/keys/server.crt
-fi
 
 openssl dhparam -outform pem -out /etc/nginx/ssl/dhparam2048.pem 2048
 
@@ -104,6 +94,8 @@ sudo mkdir -p /var/atlassian/application-data/confluence/restore
 echo -e "\e[1;31m SO WE DONE > NOW U NEED \e[0m"
 echo -e "\e[1;31m CREATE db AND db_USER \e[0m"
 echo -e "\e[1;31m or conect to external db on aws  \e[0m"
+
+
 
 
 
