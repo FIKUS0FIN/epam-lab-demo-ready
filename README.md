@@ -75,7 +75,7 @@ vim  /etc/postgresql/9.5/main/pg_hba.conf
 # u can run aws_access.sh on aws server and reate new DB and DB_USER 
 
 	chmod a+x aws_access.sh 
-	./aws_access.sh -db "db name" -du "db user" -dp "db pass"
+	./aws_access.sh -u "db name" -d "db user" -p "db pass"
 
 # for castom setup confluence postreSQ and nginx servers 
 u can run script from vagrant hox 
