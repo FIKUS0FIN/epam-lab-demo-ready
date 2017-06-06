@@ -9,10 +9,9 @@ BOLD=`tput bold`
 function HELP {
   echo -e \\n"Help documentation Confluense install + postgreSQL"\\n
   echo -e "Basic usage: demo.sh"\\n
-  echo "Command line switches are optional. The following switches are recognized."
   echo "-p [PORT]   --Sets the value for port used for the application. Default is ${BOLD}8090${NORM}."
   echo "-s [SERVER] --Sets the value for the server name. Default is ${BOLD}the IP address${NORM}."
-  echo -e "-h  --Displays this help message. No further functions are performed."\\n
+  echo -e "-h  --Displays this help message."\\n
   echo -e "Example: sudo bash demo.sh -p 8091 -s test.example.com"\\n
   exit 1
 }
