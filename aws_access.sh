@@ -1,30 +1,29 @@
 #!/bin/bash
 
-
+NORM=`tput sgr0`
+BOLD=`tput bold`
 
 # Set Defaults
 
-DB_USER="confluence_test"
-DB_NAME="test_confluence"
+DB_USER="confluence_test2"
+DB_NAME="test_confluence2"
 DB_PASS="pass"
 
-while getopts :p:s:dh FLAG; do
+
+while getopts :u:d:p: FLAG; do
   case $FLAG in
-    db)  #set option "c"
-      DB_USER=$USER_DB
+    u)  
+      DB_USER=$OPTARG
       ;;
-    du)  #set option "d"
-      DB_NAME=$NAME_DB
+    d)  
+      DB_NAME=$OPTARG
       ;;
-    dp)  #set option "e"
-      DB_PASS=$PASS_DB
-      ;;
-    \?) #unrecognized option - show help
-      echo -e \\n"Option -${BOLD}$OPTARG${NORM} not allowed."
-      HELP
+    p)  
+      DB_PASS=$OPTARG
       ;;
   esac
 done
+
 
 shift $((OPTIND-1))  #This tells getopts to move on to the next argument.
 
