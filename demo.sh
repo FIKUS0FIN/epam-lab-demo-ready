@@ -7,7 +7,7 @@ BOLD=`tput bold`
 
 
 function HELP {
-  echo -e \\n"Help documentation Confluense install + postgreSQL"\\n
+  echo -e \\n"Help documentation Confluense install + postgreSQL + Nginx(ssl)"\\n
   echo -e "Basic usage: demo.sh"\\n
   echo "-p [PORT]   --Sets the value for port used for the application. Default is ${BOLD}8090${NORM}."
   echo "-s [SERVER] --Sets the value for the server name. Default is ${BOLD}the IP address${NORM}."
@@ -66,7 +66,6 @@ openssl dhparam -outform pem -out /etc/nginx/ssl/dhparam2048.pem 2048
 
 sed -i "s/SERVER_NAME/$SERVER_NAME/" /etc/nginx/conf.d/local.conf
 sed -i "s/PORT_NUMBER/$OPT_A/" /etc/nginx/conf.d/local.conf
-# sed -i "s/SSL_ROOT/$SSL_ROOT" /etc/nginx/ssl/ssl.rules
 
 sudo service nginx restart
 
